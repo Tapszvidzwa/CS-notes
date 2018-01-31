@@ -1,0 +1,30 @@
+Types of memory errors
+==========================
+
+1] Use After Free(dangling pointer error)
+ --------------------------------------- 
+ You continue to use memory after youve freed it
+ Result: some other part of the program will see values change mysteriously
+
+2] Memory leak
+----------------
+ We forgot to free something that we allocated
+ Result: we fill up memory with stuff that we are not using
+
+3] Double/Invalid Free
+-----------------------
+ We free memory twice
+ Result: different parts of the program may accidentally share the same memory
+
+4] Buffer overflow
+---------------------
+ Our program accesses memory beyond the bounds of the object we allocated
+ Result: we may read garbage values, or we could overwrite the contents of other allocated memory
+
+5] Uninitialized read
+----------------------
+  We dereference pointers that point to unitialized memory
+ Result: we'll see unpredictable values
+ 
+
+* Valgrind can help you search through the errors since it stops exactly where the last error occured.
